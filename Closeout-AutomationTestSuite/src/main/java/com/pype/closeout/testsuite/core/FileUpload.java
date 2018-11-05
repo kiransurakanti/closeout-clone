@@ -5,6 +5,8 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.FileInputStream;
+import java.util.Properties;
 
 import org.apache.poi.ss.usermodel.Row;
 
@@ -13,7 +15,14 @@ public class FileUpload {
 
 	public void fileupload() throws Exception {
 		try {
-			Row row = excel.ReadExcel("C:\\Wrokspace\\CloseoutTestData", "TestData.xlsx", "FileUpload", 1);
+			
+			Properties property = new Properties();
+			property.load(new FileInputStream("config.properties"));
+			String excelpath = property.getProperty("readexcel");
+			
+			Row row = excel.ReadExcel(excelpath, "TestData.xlsx", "FileUpload", 1);
+			
+			
 			StringSelection ss = new StringSelection(row.getCell(0).getStringCellValue());
 			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 			fileupload();

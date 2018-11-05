@@ -1,14 +1,23 @@
 package com.pype.closeout.testsuite.core;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import atu.testrecorder.ATUTestRecorder;
 import atu.testrecorder.exceptions.ATUTestRecorderException;
 
 public class ScreenRecording 
 {
 	static ATUTestRecorder recorder;
-    public static void Recorder(String RecordName) throws ATUTestRecorderException
-    {    	 
-    	 recorder = new ATUTestRecorder("C:\\Automation\\Closeout-AutomationTestSuite\\test-output\\recordings", RecordName, false);
+    public static void Recorder(String RecordName) throws ATUTestRecorderException, FileNotFoundException, IOException
+    {    
+    	
+    	Properties property = new Properties();
+    	property.load(new FileInputStream("config.properties"));
+    	String Recordingpath = property.getProperty("screenrecording");
+    	 recorder = new ATUTestRecorder(Recordingpath, RecordName, false);
     	 
     }
 

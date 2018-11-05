@@ -1,6 +1,8 @@
 package com.pype.closeout.testsuite.drivers;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -16,9 +18,10 @@ public class ChromeDriverManager extends DriverManager {
         if (null == chService) {
             try {
             	//String exePath = "C:\\Wrokspace\\AutomationTestSuit\\resources\\chromedriver.exe";
-            	String exepath = "C:\\Users\\DELL\\Desktop\\driver\\chromedriver.exe";
-        		//System.setProperty("webdriver.chrome.driver", exePath);
-            	
+            	//System.setProperty("webdriver.chrome.driver", exePath);
+            	Properties property = new Properties();
+                property.load(new FileInputStream("config.properties"));
+                String exepath =  property.getProperty("chrome.driver.path");//"C:\\Users\\DELL\\Desktop\\driver\\chromedriver.exe";
                 chService = new ChromeDriverService.Builder()
                     .usingDriverExecutable(new File(exepath))
                     .usingAnyFreePort()

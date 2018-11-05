@@ -55,6 +55,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.automation-remarks/video-recorder
     compile group: 'com.automation-remarks', name: 'video-recorder', version: '1.0'
+    
+    
 
  
  
