@@ -1,6 +1,9 @@
 package com.pype.closeout.testsuite.core;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeBodyPart;
@@ -27,10 +30,13 @@ public class DemoMailer {
 	}
 	
 	// Create an Attachment
-	public void attachment(String desc)
+	public void attachment(String desc , String ScreenShotName) throws FileNotFoundException, IOException
 	{
 		EmailAttachment attachment = new EmailAttachment();
-		attachment.setPath("C:\\Automation\\Closeout-AutomationTestSuite\\test-output\\recordings\\Logintest.mov");
+		Properties property = new Properties();
+    	property.load(new FileInputStream("config.properties"));
+    	String SSpath = property.getProperty("screenshotpath" + ".png");
+		attachment.setPath(SSpath + ScreenShotName + ".png");
 		attachment.setDisposition(EmailAttachment.ATTACHMENT);
 		attachment.setDescription(desc);
 	}
@@ -38,15 +44,16 @@ public class DemoMailer {
 	public static void SendEmail(String aToEmailAddr, String aSubject, String body, boolean isHtml)
 			throws EmailException, MessagingException {
 		Email email = new SimpleEmail();
-		EmailAttachment attach = new EmailAttachment();
+		EmailAttachment attachment = new EmailAttachment();
 		email.setHostName("smtp.googlemail.com");
 		email.setSmtpPort(587);
 		email.setAuthenticator(new DefaultAuthenticator("pype-dev@pype.io", "P1pe246!#%"));
 		email.setSSLOnConnect(true);
 		email.setFrom("pype-dev@pype.io");
 		email.setSubject(aSubject);
-	    //email.setMsg(body);
+	    email.setMsg(body);
 		email.addTo(aToEmailAddr);
+		//email.attach(attachment);
 		email.send();
 		System.out.println("mail sent");
 		MimeMultipart multiPart = new MimeMultipart();

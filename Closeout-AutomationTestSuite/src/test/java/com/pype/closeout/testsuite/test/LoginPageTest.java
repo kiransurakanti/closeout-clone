@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.commons.mail.EmailAttachment;
 import org.apache.poi.ss.usermodel.Row;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
@@ -36,14 +37,22 @@ public class LoginPageTest extends BaseTest {
 		LoginPageBehaviour _LoginPageBehaviour = new LoginPageBehaviour(driver);
 		_LoginPageBehaviour.login(row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue());
 		log.info("login credentials entered");
-		ScreenShots.takeScreenshots(driver, "loginValidation");
-		log.info("screenshot taken");
-//		DemoMailer.SendEmail("kiran.surakanti@pype.io", "Login page validation", "login page verfied successfully",
-//				true);
-//		System.out.println("mail sent");
-//		log.info("mail sent");
-//		ScreenRecording.stop();
-//		log.info("screen recording stopped");
+		String url =driver.getCurrentUrl();
+		if (url.contains("https://closeout-dev.pype.io/projects"))
+		{
+		  log.info("user logged in Successfully");
+		}
+		else {
+		   ScreenShots.takeScreenshots(driver, "loginValidation");
+	     log.info("Login Failed and took screenshot");
+		DemoMailer.SendEmail("kiran.surakanti@pype.io", "Login page validation", "login page failed.",
+				true);
+		
+		System.out.println("mail sent");
+		log.info("mail sent");
+		//ScreenRecording.stop();
+		//log.info("screen recording stopped");
 
 	}
+}
 }
