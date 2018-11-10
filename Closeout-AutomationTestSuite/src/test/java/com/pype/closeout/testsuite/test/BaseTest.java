@@ -58,4 +58,12 @@ public class BaseTest {
 			ex.printStackTrace();
 		}
 	}
+	
+	// closing the browser after executing the test case
+	
+	@AfterTest
+	 public void quitBrowser()
+	 {
+		driverManager.quitDriver();
+	 }
 }

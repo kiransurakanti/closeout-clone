@@ -32,11 +32,10 @@ public class LoginPageBehaviour extends BaseBehaviour
    }
    
    
-   public void signuplink() throws Exception
+   public void forgotpasswordlink()
    {
 	   LoginPage _login = new LoginPage(driver);
-		_login.Signuplink(driver);
-		Thread.sleep(3000);
+	   _login.forgorpasswordlink();
    }
 
 

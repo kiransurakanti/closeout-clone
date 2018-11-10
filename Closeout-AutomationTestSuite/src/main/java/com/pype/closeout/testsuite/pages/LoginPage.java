@@ -39,6 +39,10 @@ public class LoginPage extends BasePage {
 		Password.sendKeys(password);
 	}
 
+	public void forgorpasswordlink()
+	{
+		ForgotPasswordLink.click();
+	}
 	public void loginbutton(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(LoginButton));
