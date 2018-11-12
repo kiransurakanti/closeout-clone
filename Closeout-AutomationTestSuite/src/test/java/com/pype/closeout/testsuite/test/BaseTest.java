@@ -42,7 +42,15 @@ public class BaseTest {
 
 	}
 	
-   
+	// for temporary registration email
+//			public void tempurl()
+//			{ 
+//				driverManager = DriverManagerFactory.getManager(DriverType.CHROME);
+//				driver = driverManager.getDriver();
+//				driver.manage().window().maximize();
+//				driver.get("https://temp-mail.org/en");
+//			}
+	   
 	@BeforeSuite
 	public void Chromedriverload() {
 		System.out.println("Reading configuration from '" + System.getenv("CONFIGURATION_PATH") + "' folder");
