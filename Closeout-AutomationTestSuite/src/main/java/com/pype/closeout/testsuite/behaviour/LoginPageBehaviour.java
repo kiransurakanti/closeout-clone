@@ -16,27 +16,41 @@ public class LoginPageBehaviour extends BaseBehaviour
    }
    
    public void login(String username , String pass) throws Exception
+   
    {
-   LoginPage _login =  new LoginPage(driver);
-   _login.setusername(username);
-   _login.setPassword(pass);
-   Thread.sleep(10);
-   _login.loginbutton(driver);
+   
+	   LoginPage _login =  new LoginPage(driver);
+   
+	   _login.setusername(username);
+   
+	   _login.setPassword(pass);
+   
+	   Thread.sleep(10);
+   
+	   _login.loginbutton(driver);
+   
    }
    
-   public void sigupbutton()
-   {
-	   LoginPage _login = new LoginPage(driver);
-	   _login.Signuplink(driver);
+    public void sigupbutton()
+   
+     {
+	  
+    	LoginPage _login = new LoginPage(driver);
 	   
-   }
+    	_login.Signuplink(driver);
+	   
+     }
    
    
-   public void forgotpasswordlink()
-   {
-	   LoginPage _login = new LoginPage(driver);
-	   _login.forgorpasswordlink();
-   }
+     public void forgotpasswordlink()
+       
+       {
+	      
+    	 LoginPage _login = new LoginPage(driver);
+	   
+    	 _login.forgorpasswordlink();
+       
+       }
 
 
 }

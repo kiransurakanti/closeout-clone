@@ -32,12 +32,12 @@ public class LoginPageTest extends BaseTest {
 	{
 	
 		Log log = LogFactory.getLog("LoginPageTest");
-		
-//		ScreenRecording.Recorder("Logintest");
-		
+//		
+//		ScreenRecording.Recorder("Logintest1");
+//		
 //		ScreenRecording.start();
       
-//		log.info("screen recording started");
+		log.info("screen recording started");
 		
 		ReadExcel excel = new ReadExcel();
 		
@@ -81,9 +81,9 @@ public class LoginPageTest extends BaseTest {
 		   
 			log.info("mail sent");
 		
-			//ScreenRecording.stop();
+			ScreenRecording.stop();
 		
-			//log.info("screen recording stopped");
+			log.info("screen recording stopped");
 
 	}
 }

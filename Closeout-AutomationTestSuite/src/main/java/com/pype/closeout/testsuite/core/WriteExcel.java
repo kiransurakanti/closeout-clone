@@ -59,29 +59,31 @@ public class WriteExcel
 
 		    //Get the current count of rows in excel file
 
-		    int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
+		    int rowCount = sheet.getLastRowNum()+1 ;
 
+		   String[] data = datatowrite;
+		  	    
 		    //Get the first row from the sheet
 
-		    Row row = sheet.getRow(0);
+		   Row row = sheet.getRow(0);
          
 		    // create a new row and append it at last of the sheet
 		    
-		    Row newRow = sheet.createRow(rownumber + 1);
+		    Row newRow = sheet.createRow(rowCount);
 		    
 		    // create a loop for new added cells.
 		    
-		    for (int j= 0 ; j<row.getLastCellNum() ; j++)
-		    	 
-		    {
+//		    for (int i= 0 ; i<2 ; i++)
+//		    	 
+//		    {
 		    	 // Fill data in row.
 		    	
-		    	Cell cell = newRow.createCell(j);
+		    	Cell cell = newRow.createCell(0);
 		    	
-		    	cell.setCellValue(datatowrite[j]);
+		    	cell.setCellValue(datatowrite[0]);
 		    			    	
-		    }
-	  
+		//   }
+		    	
 	   // Close inputstream
 		    
 		    inputstream.close();

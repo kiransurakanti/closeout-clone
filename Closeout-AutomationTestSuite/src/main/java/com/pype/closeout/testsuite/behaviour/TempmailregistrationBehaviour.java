@@ -15,16 +15,22 @@ public class TempmailregistrationBehaviour
     
     }
      
-    public void TempReg()
+    public String TempReg() throws Exception
     {
+    	
+    	
     	 TempmailRegistration temp = new TempmailRegistration(driver);
     	 
     	 temp.getemail();
     	 
-    	 String emial = temp.getemail();
-       	 
-    	 System.out.println(emial);
+    	 Thread.sleep(2000);
     	 
+    	 String email = temp.getemail();
+       	 
+    	 Thread.sleep(2000);
+    	 
+    	 System.out.println(email);
+    	 return email;
     }
     
 }

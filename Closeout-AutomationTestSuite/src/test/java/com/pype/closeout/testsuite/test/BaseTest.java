@@ -69,9 +69,9 @@ public class BaseTest {
 	
 	// closing the browser after executing the test case
 	
-	@AfterTest
-	 public void quitBrowser()
-	 {
-		driverManager.quitDriver();
-	 }
+//	@AfterTest
+//	 public void quitBrowser()
+//	 {
+//		driverManager.quitDriver();
+//	 }
 }

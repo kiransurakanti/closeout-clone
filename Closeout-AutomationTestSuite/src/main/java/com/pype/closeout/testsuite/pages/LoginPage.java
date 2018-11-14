@@ -50,7 +50,7 @@ public class LoginPage extends BasePage {
 	}
 
 	public void Signuplink(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(SignupButton));
 		SignupButton.click();
 	}
