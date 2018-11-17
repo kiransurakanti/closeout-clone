@@ -14,9 +14,11 @@ public class ScreenRecording
     public static void Recorder(String RecordName) throws ATUTestRecorderException, FileNotFoundException, IOException
     {    
     	
-    	Properties property = new Properties();
-    	property.load(new FileInputStream("config.properties"));
-    	String Recordingpath = property.getProperty("screenrecording");
+//    	Properties property = new Properties();
+//    	property.load(new FileInputStream("config.properties"));
+
+    	String Recordingpath = ConfigProperties.get(ConfigProperties.SCREENRECORDING_PATH);
+    	
     	 recorder = new ATUTestRecorder(Recordingpath, RecordName, false);
     	 
     }

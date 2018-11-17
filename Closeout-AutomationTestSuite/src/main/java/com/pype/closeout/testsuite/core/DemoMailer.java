@@ -35,6 +35,7 @@ public class DemoMailer {
 		EmailAttachment attachment = new EmailAttachment();
 		Properties property = new Properties();
     	property.load(new FileInputStream("config.properties"));
+    	
     	String SSpath = property.getProperty("screenshotpath" + ".png");
 		attachment.setPath(SSpath + ScreenShotName + ".png");
 		attachment.setDisposition(EmailAttachment.ATTACHMENT);

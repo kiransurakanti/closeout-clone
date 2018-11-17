@@ -24,8 +24,6 @@ import com.pype.closeout.testsuite.drivers.DriverManager;
 
 public class RegistrationPageTest  extends BaseTest {
 	
-	WebDriver driver;
-
 	public RegistrationPageTest() {
 
 		super(false);

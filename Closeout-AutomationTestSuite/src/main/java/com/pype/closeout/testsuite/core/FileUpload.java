@@ -8,17 +8,26 @@ import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Row;
 
 public class FileUpload {
 	static ReadExcel excel = new ReadExcel();
 
+	private static Logger logger = LogManager.getLogger(FileUpload.class);
+	
 	public void fileupload() throws Exception {
 		try {
 			
-			Properties property = new Properties();
-			property.load(new FileInputStream("config.properties"));
-			String excelpath = property.getProperty("readexcel");
+//			Properties property = new Properties();
+//			property.load(new FileInputStream("config.properties"));
+//			String excelpath = property.getProperty("readexcel");
+			
+			// instead of calling property file created java class file 
+			
+			String excelpath = ConfigProperties.get(ConfigProperties.READ_EXCEL_PATH);
+			
 			
 			Row row = excel.ReadExcel(excelpath, "TestData.xlsx", "FileUpload", 1);
 			
