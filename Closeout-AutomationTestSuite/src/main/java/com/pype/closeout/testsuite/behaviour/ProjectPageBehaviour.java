@@ -19,13 +19,23 @@ public class ProjectPageBehaviour extends BaseBehaviour
     	
     }
 	
-	 // Add project information
 	
-	public void createproject() throws Exception
+	
+/*	public void createproject() throws Exception
 	{
 		ProjectPage project = new ProjectPage(driver);
 		project.projectcreate(driver);
 	}
+*/
+	
+	// Add project
+	
+	public void addproject() throws Exception
+	{
+		ProjectPage project = new ProjectPage(driver);
+		project.addproject(driver);
+	}
+	
 	
 	public void addprojectinfo(String proname, String num, String creationdate, String desc) throws Exception
 	{

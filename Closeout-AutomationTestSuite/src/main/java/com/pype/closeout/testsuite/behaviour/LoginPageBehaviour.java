@@ -25,7 +25,7 @@ public class LoginPageBehaviour extends BaseBehaviour
    
 	   _login.setPassword(pass);
    
-	   Thread.sleep(10);
+	   Thread.sleep(1000);
    
 	   _login.loginbutton(driver);
    

@@ -20,32 +20,21 @@ public class ScreenShots
 	   super();
    }
    
-   public static void takeScreenshots(WebDriver driver, String ScreenShotName) throws Exception
+   public static void takeScreenshots(WebDriver driver, String SSName) throws Exception
    {
-	   String timeStamp;
-	   
+	   //String timeStamp;
 	   File screenShotName;
-	   
 	   File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	   
 	   //The below method will save the screen shot in d drive with name "screenshot.png"
-	   
-	   timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-
-	   //	   Properties property = new Properties();
-
-	   //	   property.load(new FileInputStream("config.properties"));
-	   
-	   String SSpath = ConfigProperties.get(ConfigProperties.SCREENSHOTS_PATH);
-	   
-	   screenShotName = new File(SSpath +timeStamp+".png");
-	   
+	   //timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+	   Properties property = new Properties();
+	   property.load(new FileInputStream("config.properties"));
+	   String SSpath = property.getProperty("screenshotpath");
+	   screenShotName = new File(SSpath+SSName +".png");
 	   FileUtils.copyFile(scrFile, screenShotName);
 	    
 	   String filePath = screenShotName.toString();
-	   
 	   String path = "<img src=\"file://" + filePath + "\" alt=\"\"/>";
-	   
 	   Reporter.log(path);
    }
 }

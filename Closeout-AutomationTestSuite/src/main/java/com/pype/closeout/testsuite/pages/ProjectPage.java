@@ -25,6 +25,9 @@ public class ProjectPage extends BasePage
 	 @FindBy(id = "btn-create-project")
 	 WebElement createproject;
 	 
+	 @FindBy(id = "btn-add-new-project")
+	 WebElement addproject;
+	 
 	 @FindBy(id = "txt-name")
 	 WebElement projectname;
 	 
@@ -175,6 +178,13 @@ public class ProjectPage extends BasePage
 		HighlightClick(createproject);
 	 }
 	
+	 public void addproject(WebDriver driver) throws Exception
+	 {
+		 WebDriverWait wait = new WebDriverWait(driver, 20);
+		 wait.until(ExpectedConditions.elementToBeClickable(addproject));
+		 Thread.sleep(2000);
+		 HighlightClick(addproject);
+	 }
 	 // AddProject Details
 	 
 	 public void setprojectname(String ProjectName)

@@ -33,11 +33,11 @@ public class LoginPageTest extends BaseTest {
 
 		Log log = LogFactory.getLog("LoginPageTest");
 		
-		// ScreenRecording.Recorder("Logintest3");
+		 ScreenRecording.Recorder("Logintest3");
 		
-		// ScreenRecording.start();
+		 ScreenRecording.start();
 
-		//log.info("screen recording started");
+		log.info("screen recording started");
 
 		ReadExcel excel = new ReadExcel();
 
@@ -47,7 +47,7 @@ public class LoginPageTest extends BaseTest {
 
 		String excelpath = ConfigProperties.get(ConfigProperties.READ_EXCEL_PATH);
 
-		Row row = excel.ReadExcel(excelpath, "TestData.xlsx", "login", 1);
+		Row row = excel.ReadExcel(excelpath, "TestData.xlsx", "login",1);
 
 		log.info("reading the data from excel");
 
@@ -55,6 +55,8 @@ public class LoginPageTest extends BaseTest {
 
 		_LoginPageBehaviour.login(row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue());
 
+		ScreenShots.takeScreenshots(driver, "test11");
+		 
 		log.info("login credentials entered");
 
 		Thread.sleep(5000);
@@ -72,7 +74,7 @@ public class LoginPageTest extends BaseTest {
 
 		else {
 
-			ScreenShots.takeScreenshots(driver, "loginValidation");
+			ScreenShots.takeScreenshots(driver, "Testl1ogin.png");
 
 			log.info("Login Failed and took screenshot");
 
@@ -81,9 +83,9 @@ public class LoginPageTest extends BaseTest {
 			//
 			// log.info("mail sent");
 			//
-			// ScreenRecording.stop();
+			 ScreenRecording.stop();
 
-			//log.info("screen recording stopped");
+			log.info("screen recording stopped");
 
 		}
 	}

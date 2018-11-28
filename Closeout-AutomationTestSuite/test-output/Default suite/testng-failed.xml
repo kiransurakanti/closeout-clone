@@ -3,7 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test" verbose="2">
     <classes>
-      <class name="com.pype.closeout.testsuite.test.LoginPageTest"/>
+      <class name="com.pype.closeout.testsuite.test.IVT_ArchitectureTest"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.pype.closeout.testsuite.test.IVT_ArchitectureTest">
+        <methods>
+          <include name="ArchitechTabs"/>
+          <include name="quitBrowser"/>
+          <include name="Chromedriverload"/>
+        </methods>
+      </class> <!-- com.pype.closeout.testsuite.test.IVT_ArchitectureTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

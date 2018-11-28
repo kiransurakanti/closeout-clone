@@ -20,6 +20,7 @@ import com.pype.closeout.testsuite.behaviour.LoginPageBehaviour;
 import com.pype.closeout.testsuite.core.ConfigProperties;
 import com.pype.closeout.testsuite.core.ReadExcel;
 import com.pype.closeout.testsuite.core.ScreenRecording;
+import com.pype.closeout.testsuite.core.ScreenShots;
 import com.pype.closeout.testsuite.drivers.DriverManager;
 import com.pype.closeout.testsuite.drivers.DriverManagerFactory;
 import com.pype.closeout.testsuite.drivers.DriverType;
@@ -45,14 +46,14 @@ public class BaseTest {
 		}
 	}
 
-	private void Login() throws Exception {
-		Log log = LogFactory.getLog("LoginPageTest");
+private void Login() throws Exception {
+				Log log = LogFactory.getLog("LoginPageTest");
 		
-		 ScreenRecording.Recorder("Logintest3");
+		// ScreenRecording.Recorder("Logintest3");
 		
-		 ScreenRecording.start();
+		// ScreenRecording.start();
 
-		log.info("screen recording started");
+		//log.info("screen recording started");
 
 		ReadExcel excel = new ReadExcel();
 		
@@ -67,6 +68,8 @@ public class BaseTest {
 		_LoginPageBehaviour.login(row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue());
 
 		log.info("login credentials entered");
+		
+		ScreenShots.takeScreenshots(driver, "login");
 
 	}
 	
@@ -90,9 +93,10 @@ public class BaseTest {
 	
 	// closing the browser after executing the test case
 	
-//	@AfterTest
-//	 public void quitBrowser()
-//	 {
-//		driverManager.quitDriver();
-//	 }
+/*	@AfterTest
+	 public void quitBrowser()
+	 {
+		driverManager.quitDriver();
+	 }
+*/
 }

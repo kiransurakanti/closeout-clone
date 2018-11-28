@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="IVT testing">
+  <test thread-count="1" name="Test">
+   
+    <classes>
+      <class
+	name="com.pype.closeout.testsuite.test.IVT_SuperAdminTest" />
+	<class
+		name="com.pype.closeout.testsuite.test.IVT_CompanyAdminTest" />
+	<class
+		name="com.pype.closeout.testsuite.test.IVT_CompanyUserTest" />
+	<class
+		name="com.pype.closeout.testsuite.test.IVT_GeneralContractorTest" />
+	<class
+		name="com.pype.closeout.testsuite.test.IVT_SubContractorTest" />
+	<class
+	    name="com.pype.closeout.testsuite.test.IVT_OwnerTest" />
+	<class
+		name="com.pype.closeout.testsuite.test.IVT_ArchitectureTest" />
+
+
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- IVT-testing -->

@@ -26,7 +26,7 @@ public class ProjectPageTest extends BaseTest
 		Log log = LogFactory.getLog("ProjectPageTest");
 		
 		ProjectPageBehaviour project = new ProjectPageBehaviour(driver);
-		project.createproject();
+		project.addproject();
 		Thread.sleep(2000);
 		project.addprojectinfo("SKRTEST", "1", "11/30/2018", "Testing");
 		log.info("add project details entered");
