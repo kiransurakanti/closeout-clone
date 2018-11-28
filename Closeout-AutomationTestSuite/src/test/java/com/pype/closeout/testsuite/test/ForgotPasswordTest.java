@@ -13,7 +13,7 @@ public class ForgotPasswordTest extends BaseTest
 
   {
 
-	public ForgotPasswordTest() 
+	public ForgotPasswordTest() throws Exception 
 	
 	{
 	

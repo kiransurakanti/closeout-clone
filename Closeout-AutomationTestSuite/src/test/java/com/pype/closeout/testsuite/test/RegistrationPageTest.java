@@ -24,7 +24,7 @@ import com.pype.closeout.testsuite.drivers.DriverManager;
 
 public class RegistrationPageTest  extends BaseTest {
 	
-	public RegistrationPageTest() {
+	public RegistrationPageTest() throws Exception {
 
 		super(false);
 

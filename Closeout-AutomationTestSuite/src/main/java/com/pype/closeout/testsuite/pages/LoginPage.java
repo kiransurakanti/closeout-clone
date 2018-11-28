@@ -28,31 +28,43 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath = "//a[contains(text(),'Sign Up')]")
 	WebElement SignupButton;
 
+	// creted two method to highlight and unhighlight webelements
+
+	public void Highlight(WebElement w, String WebElement) {
+		HighlightElement(driver, w);
+		w.sendKeys(WebElement);
+		UnhighlightElement(driver, w);
+	}
+
+	public void HighlightClick(WebElement clickElement) {
+		HighlightElement(driver, clickElement);
+		clickElement.click();
+		UnhighlightElement(driver, clickElement);
+	}
+
 	public void setusername(String UName) {
-		HighlightElement(driver ,UserName);
-		UserName.sendKeys(UName);
-		UnhighlightElement(driver ,UserName);
-		
+		Highlight(UserName, UName);
 	}
 
 	public void setPassword(String password) {
-		Password.sendKeys(password);
+		Highlight(Password, password);
 	}
 
-	public void forgorpasswordlink()
-	{
-		ForgotPasswordLink.click();
+	public void forgorpasswordlink() {
+		HighlightClick(ForgotPasswordLink);
 	}
+
 	public void loginbutton(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(LoginButton));
-		LoginButton.click();
+		HighlightClick(LoginButton);
+
 	}
 
 	public void Signuplink(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(SignupButton));
-		SignupButton.click();
+		HighlightClick(SignupButton);
 	}
 
 }

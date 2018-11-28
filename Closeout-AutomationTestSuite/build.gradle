@@ -28,16 +28,8 @@ dependencies {
  
     compile group: 'org.apache.logging.log4j', name: 'log4j', version: '2.11.0'
  	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.6.1'
- 	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.6.1'
- 	
- 	// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
-   
-    // https://mvnrepository.com/artifact/org.testng/testng
-    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
-   
-  
-   
+ 	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.6.1'     
+    
     // https://mvnrepository.com/artifact/org.apache.poi/poi
     compile group: 'org.apache.poi', name: 'poi', version: '4.0.0'
    
@@ -56,8 +48,48 @@ dependencies {
     // https://mvnrepository.com/artifact/com.automation-remarks/video-recorder
     compile group: 'com.automation-remarks', name: 'video-recorder', version: '1.0'
     
+     	// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
+   
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
     
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server-standalone
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-server-standalone', version: '2.53.0'
+    
+   // https://mvnrepository.com/artifact/io.cucumber/cucumber-core 
+   compile group: 'io.cucumber', name: 'cucumber-core', version: '4.2.0'
 
+    
+   // https://mvnrepository.com/artifact/io.cucumber/cucumber-html
+   compile group: 'io.cucumber', name: 'cucumber-html', version: '0.2.7'
+
+   // https://mvnrepository.com/artifact/net.sourceforge.cobertura/cobertura
+   testCompile group: 'net.sourceforge.cobertura', name: 'cobertura', version: '2.1.1'
+   
+   // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+   compile group: 'io.cucumber', name: 'cucumber-java', version: '4.2.0'
+   
+   // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+   testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '4.2.0'
+   
+   // https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting
+   compile group: 'net.masterthought', name: 'cucumber-reporting', version: '4.2.3'
+  
+   
+   // https://mvnrepository.com/artifact/org.mockito/mockito-core
+   testCompile group: 'org.mockito', name: 'mockito-core', version: '2.23.0'
+   
+   // https://mvnrepository.com/artifact/io.cucumber/gherkin
+   compile group: 'io.cucumber', name: 'gherkin', version: '5.0.0'
+   
+   // https://mvnrepository.com/artifact/junit/junit
+   testCompile group: 'junit', name: 'junit', version: '4.12'
+    
+  // https://mvnrepository.com/artifact/info.cukes/cucumber-jvm-deps
+   //provided group: 'info.cukes', name: 'cucumber-jvm-deps', version: '1.0.3'
+
+   
  
  
  

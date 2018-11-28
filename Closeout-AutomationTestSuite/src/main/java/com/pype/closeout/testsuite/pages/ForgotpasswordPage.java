@@ -25,8 +25,22 @@ public class ForgotpasswordPage extends BasePage {
 	@FindBy(xpath = "//a[contains(text(),'Sign In')]")
 	WebElement SignupButton;
 
+	// Methods to Hightlight WebElements
+
+	public void Highlight(WebElement w, String WebElement) {
+		HighlightElement(driver, w);
+		w.sendKeys(WebElement);
+		UnhighlightElement(driver, w);
+	}
+
+	public void HighlightClick(WebElement clickElement) {
+		HighlightElement(driver, clickElement);
+		clickElement.click();
+		UnhighlightElement(driver, clickElement);
+	}
+
 	public void SetEAddress(String EmailAddress) {
-		emailaddress.sendKeys(EmailAddress);
+		Highlight(emailaddress, EmailAddress);
 	}
 
 	public String GetEmailRequired() {
@@ -36,7 +50,7 @@ public class ForgotpasswordPage extends BasePage {
 	public void reset(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(ResetButton));
-		ResetButton.click();
+		HighlightClick(ResetButton);
 
 	}
 

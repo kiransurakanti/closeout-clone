@@ -42,21 +42,39 @@ public class RegisterPage extends BasePage
 		PageFactory.initElements(driver, this);
 	}
 
-
-	public void SetEmail(String Email) {
-		EmailAddress.sendKeys(Email);
+	// methods to Hightlight WebElements
+	
+	public void Highlight(WebElement w, String WebElement) {
+		HighlightElement(driver , w);
+		w.sendKeys(WebElement);
+		UnhighlightElement(driver ,w);
 	}
 
-	public void SetName(String UserName) {
-		Name.sendKeys(UserName);
+	public void HighlightClick(WebElement clickElement) {
+		HighlightElement(driver , clickElement);
+		clickElement.click();
+		UnhighlightElement(driver ,clickElement);
 	}
 
-	public void SetCompany(String CompanyName) {
-		Company.sendKeys(CompanyName);
+	
+	public void SetEmail(String Email) 
+	{
+		Highlight(EmailAddress, Email);
 	}
 
-	public void SetNumber(String number) {
-		Number.sendKeys(number);
+	public void SetName(String UserName) 
+	{
+		Highlight(Name, UserName);
+	}
+
+	public void SetCompany(String CompanyName) 
+	{	
+		Highlight(Company, CompanyName);
+	}
+
+	public void SetNumber(String number)
+	{
+	   Highlight(Number, number);
 	}
 
 	public String getEmailRequired() {
@@ -78,6 +96,6 @@ public class RegisterPage extends BasePage
 	public void Signup(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(SignUp));
-		SignUp.click();
+		HighlightClick(SignUp);
 	}
 }

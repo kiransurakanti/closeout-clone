@@ -22,8 +22,7 @@ public class ReadExcel {
 		FileInputStream inputstream = new FileInputStream(file);
 
 		Workbook workbook = null;
-
-		// Find the file extension by splitting file name in substring and
+				// Find the file extension by splitting file name in substring and
 		// getting only extension name
 		String FileExtenstionName = filename.substring(filename.indexOf("."));
 
@@ -41,6 +40,7 @@ public class ReadExcel {
 		// Read sheet inside the workbook by its name
 		Sheet sheet = workbook.getSheet(sheetname);
 		Row row = sheet.getRow(rownumber);
+		
 		return row;
 
 	}

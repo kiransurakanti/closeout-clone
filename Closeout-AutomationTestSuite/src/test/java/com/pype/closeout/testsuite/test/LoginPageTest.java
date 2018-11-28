@@ -21,7 +21,7 @@ import com.pype.closeout.testsuite.core.ScreenShots;
 
 public class LoginPageTest extends BaseTest {
 
-	public LoginPageTest() {
+	public LoginPageTest() throws Exception {
 
 		super(false);
 
@@ -33,11 +33,11 @@ public class LoginPageTest extends BaseTest {
 
 		Log log = LogFactory.getLog("LoginPageTest");
 		
-		 ScreenRecording.Recorder("Logintest3");
+		// ScreenRecording.Recorder("Logintest3");
 		
-		 ScreenRecording.start();
+		// ScreenRecording.start();
 
-		log.info("screen recording started");
+		//log.info("screen recording started");
 
 		ReadExcel excel = new ReadExcel();
 
@@ -81,9 +81,9 @@ public class LoginPageTest extends BaseTest {
 			//
 			// log.info("mail sent");
 			//
-			 ScreenRecording.stop();
+			// ScreenRecording.stop();
 
-			log.info("screen recording stopped");
+			//log.info("screen recording stopped");
 
 		}
 	}

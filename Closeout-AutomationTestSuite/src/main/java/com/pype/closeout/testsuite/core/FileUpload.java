@@ -26,15 +26,20 @@ public class FileUpload {
 			
 			// instead of calling property file created java class file 
 			
+			
 			String excelpath = ConfigProperties.get(ConfigProperties.READ_EXCEL_PATH);
 			
 			
 			Row row = excel.ReadExcel(excelpath, "TestData.xlsx", "FileUpload", 1);
 			
-			
+			logger.error(row.getCell(0).getStringCellValue());
 			StringSelection ss = new StringSelection(row.getCell(0).getStringCellValue());
+			logger.error(ss);
+			
 			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-			fileupload();
+
+
+			upload();
 		} catch (Exception e) {
 
 			System.out.println("GEtting exception while uploading file" + e);

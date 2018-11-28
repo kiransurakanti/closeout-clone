@@ -49,10 +49,10 @@ public class ProjectPage extends BasePage
 	 @FindBy(id = "description")
 	 WebElement desc;
 	 
-	 @FindBy(className = "btn green-btn-common float-right")
+	 @FindBy(xpath = "//span[contains(text(),'Continue')]")
 	 WebElement continuebutton;
 	 
-	 @FindBy(className = "btn btn-default float-right")
+	 @FindBy(xpath = "//span[contains(text(),'Go To Projects')]")
 	 WebElement gotoproject;
 	 
 	 // Other Project details
@@ -93,9 +93,12 @@ public class ProjectPage extends BasePage
 	 @FindBy(xpath = "//span[contains(text(),'Add Submital')]")
 	 WebElement addsubmittals;
 	
-	 @FindBy(xpath = "//span[contains(text(),'Import Data')]")
+	 @FindBy(xpath = "//span[contains(text(),'Import Submittals')]")
 	 WebElement importdata;
-	 	 
+	 
+	 @FindBy(id = "txt-file-upload")
+	 WebElement browsefile;
+		 	 
 	 @FindBy (id = "divisioncode")
 	 WebElement Divcode;
 	 
@@ -118,107 +121,152 @@ public class ProjectPage extends BasePage
 	 @FindBy(xpath = "//span[contains(text(),'Upload')]")
 	 WebElement upload;
 	 
-	 public void projectcreate(WebDriver driver)
+	 @FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-column-selection/div/div[2]/div/div[1]/div/div/ul/li[1]")
+	 WebElement dragsubgroup;
+	 
+	 @FindBy(xpath = "//ul[@class='list-group sortable']//li[2]")
+	 WebElement dragDivcode;
+	 
+	 @FindBy(xpath = "//ul[@class='list-group sortable']//li[5]")
+	 WebElement dragspecname;
+	 
+	 @FindBy(xpath = "//ul[@class='list-group sortable']//li[3]")
+	 WebElement dragspecnum;
+	 
+	 @FindBy(xpath = "//div[@class='pype-field-list-div']//ul[5]")
+	 WebElement dropspecname;
+	 
+	 @FindBy(xpath = "//div[@class='pype-field-list-div']//ul[3]")
+	 WebElement dropdivicode;
+	 
+	 @FindBy(xpath = "//div[@class='pype-field-list-div']//ul[4]")
+	 WebElement dropspeccode;
+	 
+	 
+	 
+	 
+	 
+	 @FindBy(xpath = "//span[contains(text(),'Continue')]")
+	 WebElement clickcontinue;
+	 
+	 
+	// Methods to Highlight WebElements
+		
+		public void Highlight(WebElement w, String WebElement) {
+			HighlightElement(driver , w);
+			w.sendKeys(WebElement);
+			UnhighlightElement(driver ,w);
+		}
+
+		public void HighlightClick(WebElement clickElement) {
+			HighlightElement(driver , clickElement);
+			clickElement.click();
+			UnhighlightElement(driver ,clickElement);
+		}
+
+		
+	 public void projectcreate(WebDriver driver) throws Exception
 	 {
-		 WebDriverWait wait = new WebDriverWait(driver , 15);
+		 WebDriverWait wait = new WebDriverWait(driver , 20);
 		 
 		 wait.until(ExpectedConditions.elementToBeClickable(createproject));
+		 Thread.sleep(2000);
 		 
-		 createproject.click();
+		HighlightClick(createproject);
 	 }
 	
 	 // AddProject Details
 	 
 	 public void setprojectname(String ProjectName)
 	 { 
-		 projectname.sendKeys(ProjectName);
+		 Highlight(projectname, ProjectName);
 	 }
 	 
 	 public void setpronumber(String projectnum)
 	 {
-		projectnumber.sendKeys(projectnum); 
+		Highlight(projectnumber, projectnum);
 	 }
 	 
 	 public void date(String Date)
 	 {
-		 date.sendKeys(Date);
+		Highlight(date, Date);
 	 }
 	 
 	 public void projType()
 	 {
-		 projecttype.click();
+		 HighlightClick(projecttype);
 	 }
 	 
 	 public void selectprotype()
 	 {
-		 selecttype.click();
+		 HighlightClick(selecttype);
 	 }
 	 
 	 public void setdesciption(String discription)
 	 {
-		 desc.sendKeys(discription);
+		 Highlight(desc, discription);
 	 }
 	 
 	 public void projrange()
 	 {
-		 range.click();
+		 HighlightClick(range);
 	 }
 	 
 	 public void selectRange()
 	 {
-		 selectrange.click();
+		 HighlightClick(selectrange);
 	 }
 	 
 	 public void clickcontinue()
 	 {
-		 continuebutton.click();
+		 HighlightClick(continuebutton);
 	 }
 	 
 	 public void clickgotoprojects()
 	 {
-		 gotoproject.click();
+		 HighlightClick(gotoproject);
 	 }
 	 
 	 // Add other project Details
 	 
 	 public void Setaddress(String add)
 	 {
-		 address.sendKeys(add);
+		 Highlight(address, add);
 	 }
 	 
 	 public void Setcity(String City)
 	 {
-		 city.sendKeys(City);
+		 Highlight(city, City);
 	 }
 	 
 	 public void setstate(String State)
 	 {
-		 state.sendKeys(State);
+		 Highlight(state, State);
 	 }
 	 
 	 public void setcountry(String Country)
 	 {
-		 country.sendKeys(Country);
+		Highlight(country, Country);
 	 }
 	 
 	 public void setzipcode(String Zip)
 	 {
-		 zipcode.sendKeys(Zip);
+		 Highlight(zipcode, Zip);
 	 }
 	 
 	 public void setmobilenumber(String Mobnumber)
 	 {
-		 mobilenumber.sendKeys(Mobnumber);
+		 Highlight(mobilenumber, Mobnumber);
 	 }
 	 
 	 public void setofficephone(String officenum)
 	 {
-		 officenumber.sendKeys(officenum);
+		 Highlight(officenumber, officenum);
 	 }
 	 
 	 public void setfax(String faxnum)
 	 {
-		 fax.sendKeys(faxnum);
+		 Highlight(fax, faxnum);
 	 }
 	 
 	 // Adding the submittals
@@ -227,16 +275,16 @@ public class ProjectPage extends BasePage
 	 {
 		 WebDriverWait wait = new WebDriverWait(driver,10);
 		 wait.until(ExpectedConditions.elementToBeClickable(addsubmittals));
-		 addsubmittals.click();
+		 HighlightClick(addsubmittals);
 	 }
 	 
 	 public void setdivcode(String divisioncode)
 	 {
-		 Divcode.sendKeys(divisioncode);
+		 Highlight(Divcode, divisioncode);
 	 }
 	 public void setspecode(String speccode)
 	 {
-		 specificationcode.sendKeys(speccode);
+		 Highlight(specificationcode, speccode);
 	 }
 	 
 	 public void setspecname(String Specname)
@@ -247,6 +295,31 @@ public class ProjectPage extends BasePage
 	 public void setSpeccategiory(String SpecCategiory)
 	 {
 		 speccategory.sendKeys(SpecCategiory);
+	 }
+	 
+	 public void importsubmitals()
+	 {
+		 importdata.click();
+	 }
+	 
+	 public void BrowseFile()
+	 {
+		 BrowseFile.click();
+	 }
+	 public void clickupload()
+	 {
+		 upload.click();
+	 }
+	
+	 public WebElement dragdivcode()
+	 {
+		return dragDivcode;
+		 
+	 }
+	 
+	 public WebElement  dropdcode()
+	 {
+		return dropdivicode;
 	 }
 	 
 }	 
