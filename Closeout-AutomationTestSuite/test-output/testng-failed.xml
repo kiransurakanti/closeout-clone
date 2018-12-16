@@ -1,62 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [IVT testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="1" name="Test">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test" verbose="2">
     <classes>
-      <class name="com.pype.closeout.testsuite.test.IVT_SuperAdminTest"/>
-      <class name="com.pype.closeout.testsuite.test.IVT_CompanyAdminTest"/>
-      <class name="com.pype.closeout.testsuite.test.IVT_CompanyUserTest"/>
-      <class name="com.pype.closeout.testsuite.test.IVT_GeneralContractorTest"/>
-      <class name="com.pype.closeout.testsuite.test.IVT_SubContractorTest"/>
-      <class name="com.pype.closeout.testsuite.test.IVT_OwnerTest"/>
-      <class name="com.pype.closeout.testsuite.test.IVT_ArchitectureTest"/>
+      <class name="com.pype.closeout.testsuite.test.ProjectPageTest"/>
     </classes>
-  </test> <!-- Test -->
-  <test name="Test(failed)">
+  </test> <!-- Default test -->
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.pype.closeout.testsuite.test.IVT_CompanyAdminTest">
+      <class name="com.pype.closeout.testsuite.test.ProjectPageTest">
         <methods>
-          <include name="CATabs"/>
-          <include name="quitBrowser"/>
-        </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.IVT_CompanyAdminTest -->
-      <class name="com.pype.closeout.testsuite.test.IVT_CompanyUserTest">
-        <methods>
-          <include name="quitBrowser"/>
-          <include name="CompanyUserTabs"/>
-        </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.IVT_CompanyUserTest -->
-      <class name="com.pype.closeout.testsuite.test.IVT_SuperAdminTest">
-        <methods>
-          <include name="quitBrowser"/>
-          <include name="CheckSuperAdmin"/>
           <include name="Chromedriverload"/>
+          <include name="CreateProject"/>
         </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.IVT_SuperAdminTest -->
-      <class name="com.pype.closeout.testsuite.test.IVT_ArchitectureTest">
-        <methods>
-          <include name="ArchitechTabs"/>
-          <include name="quitBrowser"/>
-        </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.IVT_ArchitectureTest -->
-      <class name="com.pype.closeout.testsuite.test.IVT_OwnerTest">
-        <methods>
-          <include name="OwnerTabs"/>
-          <include name="quitBrowser"/>
-        </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.IVT_OwnerTest -->
-      <class name="com.pype.closeout.testsuite.test.IVT_SubContractorTest">
-        <methods>
-          <include name="SCTabs"/>
-          <include name="quitBrowser"/>
-        </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.IVT_SubContractorTest -->
-      <class name="com.pype.closeout.testsuite.test.IVT_GeneralContractorTest">
-        <methods>
-          <include name="GCTabs"/>
-          <include name="quitBrowser"/>
-        </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.IVT_GeneralContractorTest -->
+      </class> <!-- com.pype.closeout.testsuite.test.ProjectPageTest -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [IVT testing] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

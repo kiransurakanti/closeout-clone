@@ -30,7 +30,7 @@ public class DemoMailer {
 	}
 	
 	// Create an Attachment
-	public void attachment(String desc , String ScreenShotName) throws FileNotFoundException, IOException
+	public void addattachment(String desc , String ScreenShotName) throws FileNotFoundException, IOException
 	{
 		EmailAttachment attachment = new EmailAttachment();
 		Properties property = new Properties();
@@ -54,7 +54,7 @@ public class DemoMailer {
 		email.setSubject(aSubject);
 	    email.setMsg(body);
 		email.addTo(aToEmailAddr);
-		//email.attach(attachment);
+		//email.attach(addattachment);;
 		email.send();
 		System.out.println("mail sent");
 		MimeMultipart multiPart = new MimeMultipart();

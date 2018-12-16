@@ -12,13 +12,14 @@
       <class name="com.pype.closeout.testsuite.test.RegistrationPageTest">
         <methods>
           <include name="Register"/>
-        </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.RegistrationPageTest -->
-      <class name="com.pype.closeout.testsuite.test.TempmailRegistrationTest$LoginPageTest">
-        <methods>
           <include name="Chromedriverload"/>
         </methods>
-      </class> <!-- com.pype.closeout.testsuite.test.TempmailRegistrationTest$LoginPageTest -->
+      </class> <!-- com.pype.closeout.testsuite.test.RegistrationPageTest -->
+      <class name="com.pype.closeout.testsuite.test.TempmailRegistrationTest">
+        <methods>
+          <include name="quitDriver"/>
+        </methods>
+      </class> <!-- com.pype.closeout.testsuite.test.TempmailRegistrationTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [RegistrationFlow] -->

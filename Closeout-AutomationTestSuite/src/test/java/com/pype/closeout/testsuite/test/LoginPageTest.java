@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.poi.ss.usermodel.Row;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 
@@ -55,7 +56,7 @@ public class LoginPageTest extends BaseTest {
 
 		_LoginPageBehaviour.login(row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue());
 
-		ScreenShots.takeScreenshots(driver, "test11");
+		//ScreenShots.takeScreenshots(driver, "test11");
 		 
 		log.info("login credentials entered");
 
@@ -74,7 +75,7 @@ public class LoginPageTest extends BaseTest {
 
 		else {
 
-			ScreenShots.takeScreenshots(driver, "Testl1ogin.png");
+			//ScreenShots.takeScreenshots(driver, "Testl1ogin.png");
 
 			log.info("Login Failed and took screenshot");
 
@@ -83,9 +84,9 @@ public class LoginPageTest extends BaseTest {
 			//
 			// log.info("mail sent");
 			//
-			 ScreenRecording.stop();
+			// ScreenRecording.stop();
 
-			log.info("screen recording stopped");
+		//	log.info("screen recording stopped");
 
 		}
 	}

@@ -24,11 +24,10 @@ public class ProjectPageTest extends BaseTest
 	 
 	 {
 		Log log = LogFactory.getLog("ProjectPageTest");
-		
 		ProjectPageBehaviour project = new ProjectPageBehaviour(driver);
 		project.addproject();
 		Thread.sleep(2000);
-		project.addprojectinfo("SKRTEST", "1", "11/30/2018", "Testing");
+		project.addprojectinfo("SKRTE1ST", "1", "12/30/2018","$5M to $10M","79", "Testing");
 		log.info("add project details entered");
 		project.projectdetails("1-2-3", "Bangalore", "Karnataka", "India", "12346", "0987654321", "0987654321", "0987654321");
 		log.info("personal details entered");

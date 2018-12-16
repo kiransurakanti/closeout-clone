@@ -24,6 +24,13 @@ public class LeftNavigationMenuBehaviour extends BaseBehaviour{
 		return protext;
 		
 	}
+	// click on the company shared to see the list of menu's available for GC,SC,Owner and Archi.
+	
+	public void clickcompanyshared()
+	{
+		LeftNavigationMenuPage nav = new LeftNavigationMenuPage(driver);
+		nav.clickcompanyshared();
+	}
 	
 	public void dashboard()
 	{

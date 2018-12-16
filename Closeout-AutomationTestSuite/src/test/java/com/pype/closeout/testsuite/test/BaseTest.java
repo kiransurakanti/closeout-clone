@@ -5,19 +5,25 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.mail.MessagingException;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.commons.mail.EmailException;
 import org.apache.poi.ss.usermodel.Row;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 import com.pype.closeout.testsuite.behaviour.LoginPageBehaviour;
 import com.pype.closeout.testsuite.core.ConfigProperties;
+import com.pype.closeout.testsuite.core.DemoMailer;
 import com.pype.closeout.testsuite.core.ReadExcel;
 import com.pype.closeout.testsuite.core.ScreenRecording;
 import com.pype.closeout.testsuite.core.ScreenShots;
@@ -69,7 +75,7 @@ private void Login() throws Exception {
 
 		log.info("login credentials entered");
 		
-		ScreenShots.takeScreenshots(driver, "login");
+		
 
 	}
 	
@@ -91,12 +97,11 @@ private void Login() throws Exception {
 		}
 	}
 	
-	// closing the browser after executing the test case
-	
-/*	@AfterTest
-	 public void quitBrowser()
-	 {
-		driverManager.quitDriver();
-	 }
-*/
+/*	@AfterSuite
+	   public void SendEmail() throws EmailException, MessagingException
+	   {
+		DemoMailer.SendEmail("kiran.surakanti@pype.io", "IVT Test Result", "IVT Test cases has been executed URL:///C:/closeout-clone/Closeout-AutomationTestSuite/test-output/emailable-report.html ", true);
+		org.mortbay.log.Log.info("Mail has sent");
+	   }
+	   */
 }

@@ -3,6 +3,7 @@ package com.pype.closeout.testsuite.test;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.ss.usermodel.Row;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -32,7 +33,8 @@ public class IVT_GeneralContractorTest extends BaseTest {
 		log.info("reading the data from excel");
 		LoginPageBehaviour _LoginPageBehaviour = new LoginPageBehaviour(driver);
 		_LoginPageBehaviour.login(row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue());
-		ScreenShots.takeScreenshots(driver, "GC-loginpage");
+		Thread.sleep(500);
+		ScreenShots.takeScreenshots(driver,"GC\\", "login");
 		log.info("login credentials entered");
 
 		// Validating the list of tabs and entering into each tab.
@@ -40,36 +42,33 @@ public class IVT_GeneralContractorTest extends BaseTest {
 		log.info("List of tabs available for General Contractor are as follows");
 		LeftNavigationMenuBehaviour Nav = new LeftNavigationMenuBehaviour(driver);
 		Thread.sleep(2000);
-		String protext = Nav.getprojecttext();
-		log.info("project tab has opened" + protext);
+		
+		// opening the project shared by the company admin to GC
+		
+		Nav.clickcompanyshared();
+		ScreenShots.takeScreenshots(driver,"GC\\", "Sharedproject");
 		Thread.sleep(2000);
+		// Validating the list of tabs availabel for GC
+		
+	    ScreenShots.takeScreenshots(driver,"GC\\", "ProjectPage");
 		Nav.dashboard();
-		String dashboardtext = Nav.getdashboardtext();
-		log.info("Dashboard has opened" + dashboardtext);
+		ScreenShots.takeScreenshots(driver,"GC\\", "DashBoardPage");
 		Thread.sleep(2000);
 		Nav.submittals();
-		String submittalstext = Nav.getsubmittalstext();
-		log.info("Submittals tab has opened " + submittalstext);
-		Thread.sleep(2000);
-		Nav.directory();
-		String directorytext = Nav.getdirectorytext();
-		log.info("Directory tab has  opened " + directorytext);
+		ScreenShots.takeScreenshots(driver,"GC\\", "SubmittalsPage");
 		Thread.sleep(2000);
 		Nav.reports();
-		String reportstext = Nav.getreportstext();
-		log.info("Reports tab has opened" + reportstext);
+		ScreenShots.takeScreenshots(driver,"GC\\", "ReportsPage");
+		Thread.sleep(3000);
 		Nav.portfolio();
-		String portfoliotext = Nav.getportfoliotext();
-		log.info("Portfolio tab has opened" + portfoliotext);
-
-		// taking the screenshot page.
-
-		ScreenShots.takeScreenshots(driver, "Gen-Contractor");
+    	ScreenShots.takeScreenshots(driver,"GC\\", "PortfolioPage");
+    	Thread.sleep(2000);
+		System.out.println("opened the project shared by company admin and validated the tabs availabel for GC.");
 	}
 
 	// closing the driver after validating the test case
 
-	@AfterTest
+	@AfterClass
 	public void quitBrowser() {
 		driverManager.quitDriver();
 	}

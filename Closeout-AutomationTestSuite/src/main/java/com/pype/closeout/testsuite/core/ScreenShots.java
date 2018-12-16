@@ -20,7 +20,7 @@ public class ScreenShots
 	   super();
    }
    
-   public static void takeScreenshots(WebDriver driver, String SSName) throws Exception
+   public static void takeScreenshots(WebDriver driver,String foldername,  String SSName ) throws Exception
    {
 	   //String timeStamp;
 	   File screenShotName;
@@ -30,7 +30,7 @@ public class ScreenShots
 	   Properties property = new Properties();
 	   property.load(new FileInputStream("config.properties"));
 	   String SSpath = property.getProperty("screenshotpath");
-	   screenShotName = new File(SSpath+SSName +".png");
+	   screenShotName = new File(SSpath+foldername+SSName +".png");
 	   FileUtils.copyFile(scrFile, screenShotName);
 	    
 	   String filePath = screenShotName.toString();

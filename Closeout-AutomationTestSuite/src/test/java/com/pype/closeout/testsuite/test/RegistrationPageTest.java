@@ -26,8 +26,7 @@ public class RegistrationPageTest  extends BaseTest {
 	
 	public RegistrationPageTest() throws Exception {
 
-		super(false);
-
+	super(false);
 	}
 
 	@Test
@@ -61,7 +60,7 @@ public class RegistrationPageTest  extends BaseTest {
 		_RegistrationPageBehaviour.registration(row.getCell(0).getStringCellValue(), "kiran Reddy", "pype",
 				"0987654321");
 
-		ScreenShots.takeScreenshots(driver, "Registrationpage");
+		ScreenShots.takeScreenshots(driver, "RegPage\\","Registrationpage");
 
 		log.info("clicked on signup");
 
@@ -93,7 +92,7 @@ public class RegistrationPageTest  extends BaseTest {
 
 		{
 			
-			ScreenShots.takeScreenshots(driver, "Registration");
+			ScreenShots.takeScreenshots(driver,"RegPage\\", "Registration");
 
 		}
 

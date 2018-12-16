@@ -19,6 +19,7 @@ public class ForgotPasswordTest extends BaseTest
 	
 		super(false);
 	
+	
 	}
 	
 	@Test
@@ -81,7 +82,7 @@ public class ForgotPasswordTest extends BaseTest
 		
 			{
 			
-				ScreenShots.takeScreenshots(driver, "Forgotpassword");	
+				ScreenShots.takeScreenshots(driver, "Forgotpassword\\","Forgotpassword");	
 			}
 	    
 		

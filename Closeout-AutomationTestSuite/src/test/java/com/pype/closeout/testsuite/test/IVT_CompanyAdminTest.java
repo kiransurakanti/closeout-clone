@@ -3,6 +3,7 @@ package com.pype.closeout.testsuite.test;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.ss.usermodel.Row;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -29,54 +30,42 @@ public class IVT_CompanyAdminTest extends BaseTest {
 		log.info("reading the data from excel");
 		LoginPageBehaviour _LoginPageBehaviour = new LoginPageBehaviour(driver);
 		_LoginPageBehaviour.login(row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue());
-		ScreenShots.takeScreenshots(driver, "CA-loginpage");
+		Thread.sleep(500);
+		ScreenShots.takeScreenshots(driver,"CA\\", "login");
 		log.info("login credentials entered");
 
 		// Validating the list of tabs and entering into each tab.
 		
 		log.info("List of tabs available for compnay admin are as follows");
 		LeftNavigationMenuBehaviour Nav = new LeftNavigationMenuBehaviour(driver);
-		Thread.sleep(2000);
-		String protext = Nav.getprojecttext();
-		log.info("project tab has opened" + protext);
+		ScreenShots.takeScreenshots(driver,"CA\\", "ProjectPage");
 		Thread.sleep(2000);
 		Nav.dashboard();
-		String dashboardtext = Nav.getdashboardtext();
-		log.info("Dashboard has opened" + dashboardtext);
+		ScreenShots.takeScreenshots(driver,"CA\\", "DashBoardPage");
 		Thread.sleep(2000);
 		Nav.submittals();
-		String submittalstext = Nav.getsubmittalstext();
-		log.info("Submittals tab has opened " + submittalstext);
+		ScreenShots.takeScreenshots(driver,"CA\\", "SubmittalsPage");
 		Thread.sleep(2000);
 		Nav.directory();
-		String directorytext = Nav.getdirectorytext();
-		log.info("Directory tab has  opened " + directorytext);
+		ScreenShots.takeScreenshots(driver,"CA\\", "DirectoryPage");
 		Thread.sleep(2000);
 		Nav.reports();
-		String reportstext = Nav.getreportstext();
-		log.info("Reports tab has opened" + reportstext);
-		Nav.portfolio();
-		String portfoliotext = Nav.getportfoliotext();
-		log.info("Portfolio tab has opened" + portfoliotext);
+		ScreenShots.takeScreenshots(driver,"CA\\", "ReportsPage");
+		Thread.sleep(2000);
 		Nav.emails();
-		String emailstext = Nav.getemail();
-		log.info(emailstext);
-		Nav.clickcompanyportfolio();
-		String companyportfoliotext = Nav.getcompanyportfolio();
-		log.info(companyportfoliotext);
-		Nav.clickadmin();
-		String Admintext = Nav.getadmintext();
-		log.info(Admintext);
+		ScreenShots.takeScreenshots(driver,"CA\\", "EmailsPage");
+		Thread.sleep(2000);
+		Nav.portfolio();
+		ScreenShots.takeScreenshots(driver,"CA\\", "PortfolioPage");
+		Thread.sleep(2000);
 		
-		//taking the screenshot page.
-		
-		ScreenShots.takeScreenshots(driver, "CompanyAdmin");
+		System.out.println("list of tabs available for company admin are displayed");
 
 	}
 	
 	// closing the driver after validating the test case
 	
-		@AfterTest
+		@AfterClass
 		 public void quitBrowser()
 		 {
 			driverManager.quitDriver();

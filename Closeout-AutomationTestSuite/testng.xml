@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="RegistrationFlow">
+<suite name="RegistrationFlow" parallel="false">
   <test thread-count="1" name="Test">
     <classes>
       <class name="com.pype.closeout.testsuite.test.TempmailRegistrationTest"/>

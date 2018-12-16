@@ -35,7 +35,7 @@ public class LeftNavigationMenuPage extends BasePage
 	@FindBy(css = "app-submittal-list > div > div > h1 > span")
 	WebElement submittalstext;
 	
-	@FindBy(xpath = "//span[contains(text(),'Project Directory')]")
+	@FindBy(xpath = "//span[contains(text(),'Directory')]")
 	WebElement projectdirectory;
 	
 	@FindBy(css = "app-contact-list > div > h1 > span")
@@ -47,7 +47,7 @@ public class LeftNavigationMenuPage extends BasePage
 	@FindBy(css = "app-home > div > h1 > span")
 	WebElement reportstext;
 	
-	@FindBy(xpath = "//span[contains(text(),'User Portfolio')]")
+	@FindBy(xpath = "//span[contains(text(),'Portfolio')]")
 	WebElement userportfolio;
 	
 	@FindBy(css = "app-portfolio > div > h1 > span")
@@ -65,7 +65,7 @@ public class LeftNavigationMenuPage extends BasePage
 	@FindBy(className = "class='ng-binding")
 	WebElement companypotfoliotext;
 	
-	@FindBy(xpath = "//span[contains(text(),'Administration')]")
+	@FindBy(xpath = "//span[contains(text(),'Admin')]")
 	WebElement Administration;
 	
 	@FindBy(xpath = "//span[contains(text(),'Participant Groups')]")
@@ -74,10 +74,13 @@ public class LeftNavigationMenuPage extends BasePage
 	@FindBy(xpath = "//span[contains(text(),'Pype Admin')]")
 	WebElement PypeAdmin;
 	
-	@FindBy(xpath = "//div[@class='row container-fluid pype-heading']//span[contains(text(),'Admin')]")
+	@FindBy(xpath = "//span[contains(text(),'Contact Types')]")
 	WebElement PypeAdmintext;
 	
-
+   // opening the project to see the role and list of menu's available.
+	
+	@FindBy(xpath = "//p[contains(text(),'mailinator1.com')]")
+	WebElement clickcompany;
 	
 	public String getprojecttext(WebDriver driver) 
 	     {
@@ -178,5 +181,10 @@ public class LeftNavigationMenuPage extends BasePage
 	public String getpypeadmintext()
 	{
 		return PypeAdmintext.getText();
+	}
+	
+	public void clickcompanyshared()
+	{
+		clickcompany.click();
 	}
  }

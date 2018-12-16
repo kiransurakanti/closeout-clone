@@ -32,6 +32,7 @@ public class LoginPage extends BasePage {
 
 	public void Highlight(WebElement w, String WebElement) {
 		HighlightElement(driver, w);
+		if(WebElement!=null)
 		w.sendKeys(WebElement);
 		UnhighlightElement(driver, w);
 	}

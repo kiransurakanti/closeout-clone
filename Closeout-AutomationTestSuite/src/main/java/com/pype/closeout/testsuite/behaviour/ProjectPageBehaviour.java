@@ -1,9 +1,15 @@
 package com.pype.closeout.testsuite.behaviour;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import org.mortbay.log.Log;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import com.pype.closeout.testsuite.core.FileUpload;
 import com.pype.closeout.testsuite.pages.ProjectPage;
@@ -37,23 +43,33 @@ public class ProjectPageBehaviour extends BaseBehaviour
 	}
 	
 	
-	public void addprojectinfo(String proname, String num, String creationdate, String desc) throws Exception
+	public void addprojectinfo(String proname, String num, String creationdate,String percentageprofit, String desc,String EnterRange) throws Exception
 	{
 		ProjectPage project = new ProjectPage(driver);
+		Robot robot = new Robot();
 		project.setprojectname(proname);
 		Thread.sleep(1000);
 		project.setpronumber(num);
 		Thread.sleep(1000);
-		project.projType();
-		Thread.sleep(500);
+	/*	project.projType();
+		Thread.sleep(2000);
 		project.selectprotype();
 		Thread.sleep(500);
+	*/	
 		project.date(creationdate);
 		Thread.sleep(500);
-		project.projrange();
+		Log.info("selecting project range");
+       
+			
+		
+//		project.projrange(EnterRange);		
+//        robot.keyPress(KeyEvent.VK_ENTER);
+//        robot.keyRelease(KeyEvent.VK_ENTER);
+		
+		Log.info("selected project range");
 		Thread.sleep(500);
-		project.selectRange();
-		Thread.sleep(500);
+	    project.setprofit(percentageprofit);
+	    Thread.sleep(500);   
 		project.setdesciption(desc);
 		Thread.sleep(500);
 		project.clickcontinue();
@@ -115,6 +131,7 @@ public class ProjectPageBehaviour extends BaseBehaviour
 		Thread.sleep(2000);
         Actions act=new Actions(driver);
         act.dragAndDrop(project.dragdivcode(), project.dropdcode()).build().perform();
+        project.clickmapcontinuebutton();
         
         
 		

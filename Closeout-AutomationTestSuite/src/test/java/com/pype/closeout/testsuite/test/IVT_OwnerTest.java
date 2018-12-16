@@ -3,6 +3,7 @@ package com.pype.closeout.testsuite.test;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.ss.usermodel.Row;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -32,45 +33,48 @@ public class IVT_OwnerTest extends BaseTest
 		log.info("reading the data from excel");
 		LoginPageBehaviour _LoginPageBehaviour = new LoginPageBehaviour(driver);
 		_LoginPageBehaviour.login(row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue());
-		ScreenShots.takeScreenshots(driver, "Owner-loginpage");
+		Thread.sleep(500);
+		ScreenShots.takeScreenshots(driver,"Owner\\", "login");
 		log.info("login credentials entered");
 
 		// Validating the list of tabs and entering into each tab.
 
 		log.info("List of tabs available for Owner are as follows");
 		LeftNavigationMenuBehaviour Nav = new LeftNavigationMenuBehaviour(driver);
-		Thread.sleep(2000);
-		String protext = Nav.getprojecttext();
-		log.info("project tab has opened" + protext);
-		Thread.sleep(2000);
+
+		// selecting the project which was shared by company admin.
+
+		Nav.clickcompanyshared();
+		ScreenShots.takeScreenshots(driver,"Owner\\", "SharedPage");
+		Thread.sleep(3000);
+
+		// Validating the list of tabs.
+
+		ScreenShots.takeScreenshots(driver,"Owner\\", "ProjectsPage");
 		Nav.dashboard();
-		String dashboardtext = Nav.getdashboardtext();
-		log.info("Dashboard has opened" + dashboardtext);
+		ScreenShots.takeScreenshots(driver,"Owner\\", "DashBoardPage");
 		Thread.sleep(2000);
 		Nav.submittals();
-		String submittalstext = Nav.getsubmittalstext();
-		log.info("Submittals tab has opened " + submittalstext);
+		ScreenShots.takeScreenshots(driver,"Owner\\", "SubmittalsPage");
 		Thread.sleep(2000);
 		// Nav.directory();
 		// String directorytext = Nav.getdirectorytext();
 		// log.info("Directory tab has opened "+ directorytext);
 		// Thread.sleep(2000);
 		Nav.reports();
-		String reportstext = Nav.getreportstext();
-		log.info("Reports tab has opened" + reportstext);
+		ScreenShots.takeScreenshots(driver,"Owner\\", "ReportsPage");
+		Thread.sleep(2000);
 		Nav.portfolio();
-		String portfoliotext = Nav.getportfoliotext();
-		log.info("Portfolio tab has opened" + portfoliotext);
+		ScreenShots.takeScreenshots(driver,"Owner\\", "PortfolioPage");
+		Thread.sleep(3000);
 		
-		// taking the screenshot page.
-
-		ScreenShots.takeScreenshots(driver, "Owner");
+		System.out.println("List all the tabs are present for owner");
 		
     }
    
 // closing the driver after validating the test case
 	
-	@AfterTest
+	@AfterClass
 	 public void quitBrowser()
 	 {
 		driverManager.quitDriver();

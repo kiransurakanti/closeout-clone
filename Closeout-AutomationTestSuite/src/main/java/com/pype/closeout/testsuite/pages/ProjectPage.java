@@ -22,8 +22,8 @@ public class ProjectPage extends BasePage
 
 	 //  Add project informatio
 	
-	 @FindBy(id = "btn-create-project")
-	 WebElement createproject;
+//	 @FindBy(id = "btn-create-project")
+//	 WebElement createproject;
 	 
 	 @FindBy(id = "btn-add-new-project")
 	 WebElement addproject;
@@ -37,20 +37,23 @@ public class ProjectPage extends BasePage
 	 @FindBy(id = "project-completion-date")
 	 WebElement date;
 	 
-	 @FindBy(id = "project-type")
+	/* @FindBy(id = "project-type")
 	 WebElement projecttype;
 	 
-	 @FindBy(xpath = "//option[@value='5: Education']")
+	 @FindBy(xpath = "//div[@id='a0669773eb7e']")
 	 WebElement selecttype;
-	 	 	
+	 */	 	
 	 @FindBy(id= "value-range")
 	 WebElement range;
 	 
-	 @FindBy(xpath = "//option[@value='2: $1M to $5M']")
+	 @FindBy(xpath = "//div[@id='afd869aa9ded']")
 	 WebElement selectrange;
 	 
 	 @FindBy(id = "description")
 	 WebElement desc;
+	 
+	 @FindBy(id = "profit-percentage")
+	 WebElement profitpercentage;
 	 
 	 @FindBy(xpath = "//span[contains(text(),'Continue')]")
 	 WebElement continuebutton;
@@ -127,13 +130,13 @@ public class ProjectPage extends BasePage
 	 @FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-column-selection/div/div[2]/div/div[1]/div/div/ul/li[1]")
 	 WebElement dragsubgroup;
 	 
-	 @FindBy(xpath = "//ul[@class='list-group sortable']//li[2]")
+	 @FindBy(xpath = "//li[contains(text(),'DIVISION CD')]")
 	 WebElement dragDivcode;
 	 
-	 @FindBy(xpath = "//ul[@class='list-group sortable']//li[5]")
+	 @FindBy(xpath = "//li[contains(text(),'SPECIFICATION NAME')]")
 	 WebElement dragspecname;
 	 
-	 @FindBy(xpath = "//ul[@class='list-group sortable']//li[3]")
+	 @FindBy(xpath = "//li[contains(text(),'SPECIFICATION NUMBER')]")
 	 WebElement dragspecnum;
 	 
 	 @FindBy(xpath = "//div[@class='pype-field-list-div']//ul[5]")
@@ -145,7 +148,8 @@ public class ProjectPage extends BasePage
 	 @FindBy(xpath = "//div[@class='pype-field-list-div']//ul[4]")
 	 WebElement dropspeccode;
 	 
-	 
+	 @FindBy(xpath= "//button[@type='button']//span[contains(text(),'Continue')]")
+	 WebElement mapcontinuebutton;
 	 
 	 
 	 
@@ -167,7 +171,7 @@ public class ProjectPage extends BasePage
 			UnhighlightElement(driver ,clickElement);
 		}
 
-		
+/*		
 	 public void projectcreate(WebDriver driver) throws Exception
 	 {
 		 WebDriverWait wait = new WebDriverWait(driver , 20);
@@ -177,15 +181,17 @@ public class ProjectPage extends BasePage
 		 
 		HighlightClick(createproject);
 	 }
-	
+*/	
 	 public void addproject(WebDriver driver) throws Exception
 	 {
 		 WebDriverWait wait = new WebDriverWait(driver, 20);
 		 wait.until(ExpectedConditions.elementToBeClickable(addproject));
 		 Thread.sleep(2000);
-		 HighlightClick(addproject);
+		 //HighlightClick(addproject);
+		 addproject.click();
 	 }
-	 // AddProject Details
+
+		// AddProject Details
 	 
 	 public void setprojectname(String ProjectName)
 	 { 
@@ -202,14 +208,21 @@ public class ProjectPage extends BasePage
 		Highlight(date, Date);
 	 }
 	 
-	 public void projType()
+/*	 public void projType()
 	 {
-		 HighlightClick(projecttype);
+		HighlightClick(projecttype);
+
 	 }
 	 
 	 public void selectprotype()
 	 {
-		 HighlightClick(selecttype);
+		HighlightClick(selecttype);
+		
+	 }
+*/	 
+	 public void setprofit(String percentage)
+	 {
+		 Highlight(profitpercentage, percentage);
 	 }
 	 
 	 public void setdesciption(String discription)
@@ -217,9 +230,11 @@ public class ProjectPage extends BasePage
 		 Highlight(desc, discription);
 	 }
 	 
-	 public void projrange()
+	 public void  projrange() throws Exception
 	 {
-		 HighlightClick(range);
+		 range.click();
+		 Thread.sleep(2000);
+		// range.sendKeys(Range);
 	 }
 	 
 	 public void selectRange()
@@ -332,6 +347,12 @@ public class ProjectPage extends BasePage
 		return dropdivicode;
 	 }
 	 
-}	 
- 
+	 
+	 
+	 public void clickmapcontinuebutton()
+	 {
+		 mapcontinuebutton.click();
+	 }
+	 
+}
   

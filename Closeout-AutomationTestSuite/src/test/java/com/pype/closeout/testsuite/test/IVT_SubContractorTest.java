@@ -3,6 +3,7 @@ package com.pype.closeout.testsuite.test;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.ss.usermodel.Row;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -37,37 +38,38 @@ public class IVT_SubContractorTest  extends BaseTest{
 		log.info("reading the data from excel");
 		LoginPageBehaviour _LoginPageBehaviour = new LoginPageBehaviour(driver);
 		_LoginPageBehaviour.login(row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue());
-		ScreenShots.takeScreenshots(driver, "SC-loginpage");
+		Thread.sleep(500);
+		ScreenShots.takeScreenshots(driver,"SC\\", "SC-loginpage");
 		log.info("login credentials entered");
 
 		// Validating the list of tabs and entering into each tab.
 		log.info("List of tabs available for SubContractor are as follows");
 		LeftNavigationMenuBehaviour Nav = new LeftNavigationMenuBehaviour(driver);
+
+		// selecting the project which was shared by company admin.
+        
+		Nav.clickcompanyshared();
 		Thread.sleep(2000);
-		String protext = Nav.getprojecttext();
-		log.info("project tab has opened" + protext);
+		ScreenShots.takeScreenshots(driver,"SC\\","ProjectShared");
+		
+
+		// Validating the list of tabs.
+
 		Thread.sleep(2000);
+		ScreenShots.takeScreenshots(driver,"SC\\","projectpage");
 		Nav.dashboard();
-		String dashboardtext = Nav.getdashboardtext();
-		log.info("Dashboard has opened" + dashboardtext);
 		Thread.sleep(2000);
+		ScreenShots.takeScreenshots(driver,"SC\\","dashboardpage");
 		Nav.submittals();
-		String submittalstext = Nav.getsubmittalstext();
-		log.info("Submittals tab has opened " + submittalstext);
 		Thread.sleep(2000);
-		Nav.portfolio();
-		String portfoliotext = Nav.getportfoliotext();
-		log.info("Portfolio tab has opened" + portfoliotext);
-
-		// taking the screenshot page.
-
-		ScreenShots.takeScreenshots(driver, "Sub-Contractor");
+		ScreenShots.takeScreenshots(driver,"SC\\","submitalspage");
+		System.out.println("all tabs are present for SC");
 	
 	}
 
 	// closing the driver after validating the test case
 	
-		@AfterTest
+		@AfterClass
 		 public void quitBrowser()
 		 {
 			driverManager.quitDriver();
